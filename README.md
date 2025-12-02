@@ -82,7 +82,7 @@ python run.py --mode full
 ```
 
 Das führt automatisch durch:
-1. ✅ Daten laden (inkrementell)
+1. ✅ Daten laden
 2. ✅ Features erstellen
 3. ✅ Models trainieren
 4. ✅ Backtest durchführen
@@ -353,6 +353,7 @@ Bei Fragen oder Problemen:
 ---
 
 **Viel Erfolg beim Trading! 🚀📈**
+
 
 
 
