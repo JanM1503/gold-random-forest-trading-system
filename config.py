@@ -5,14 +5,18 @@ Alle API-Keys werden aus Environment-Variablen geladen
 import os
 from datetime import datetime
 
-
-OANDA_API_KEY = os.getenv("OANDA_API_KEY", "")
-OANDA_ACCOUNT_ID = os.getenv("OANDA_ACCOUNT_ID", "")
+# ====================================
+# API CREDENTIALS (aus ENV laden)
+# HINWEIS: Für GitHub KEINE echten Keys hier hinterlegen!
+#          Setze die Werte ausschließlich über Environment-Variablen
+# ====================================
+OANDA_API_KEY = os.getenv("OANDA_API_KEY", "7853cf1199152030d7cfed27ff0dfadd-e141ec058dafd6ca2090eb0887b3791d")
+OANDA_ACCOUNT_ID = os.getenv("OANDA_ACCOUNT_ID", "101-004-37570682-001")
 OANDA_API_URL = "https://api-fxpractice.oanda.com/v3"
 
-NEWS_API_KEY = os.getenv("NEWS_API_KEY", "")
-FRED_API_KEY = os.getenv("FRED_API_KEY", "")
-RAPIDAPI_KEY = os.getenv("RAPIDAPI_KEY", "")
+NEWS_API_KEY = os.getenv("NEWS_API_KEY", "fa5e87661b8c42c594572d88f7c468a8")
+FRED_API_KEY = os.getenv("FRED_API_KEY", "f7a90545d65279aaf81ebb5926f526a3")
+RAPIDAPI_KEY = os.getenv("RAPIDAPI_KEY", "f6796745fcmsh35009faad5c9e92p1bc1ecjsnb07fdc569422")
 
 # ====================================
 # DATEN-KONFIGURATION
@@ -79,8 +83,6 @@ RF_RANDOM_STATE = 42
 FUTURE_RETURN_PERIODS = [4, 8, 16]  # 1h, 2h, 4h ahead
 ENTRY_THRESHOLD_PCT = 0.2  # 0.15% for 15-min gold candles (was 0.7% - too high!)
 
-# Mindest-Wahrscheinlichkeit für LONG/SHORT Trades (sonst FLAT)
-MIN_TRADE_PROBA = 0.6  # z.B. 60%: darunter -> kein Trade
 
 # Model-Dateien
 ENTRY_MODEL_FILE = f"{MODELS_DIR}/entry_model.pkl"
@@ -166,5 +168,4 @@ print(f"[TRAIN] Train: {TRAIN_START_DATE} bis {TRAIN_END_DATE}")
 print(f"[TEST] Test: {TEST_START_DATE} bis {TEST_END_DATE}")
 print(f"[GOLD] Gold-Instrument: {GOLD_INSTRUMENT}")
 print(f"[TRADE] Auto-Trading: {'AKTIV' if AUTO_TRADE else 'INAKTIV'}")
-
 

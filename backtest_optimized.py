@@ -153,15 +153,15 @@ class BacktestOptimized:
         
         # Use threshold-based decision instead of argmax
         # This allows LONG and SHORT to compete more fairly
-        prob_threshold = config.MIN_TRADE_PROBA  # global threshold from config
+        PROB_THRESHOLD = 0.42 # Need at least 42% confidence to trade
         entry_signals = np.zeros(n, dtype=np.int8)  # Default: FLAT
-        
+
         # Assign LONG where prob_long is highest AND above threshold
-        long_mask = (prob_long > prob_short) & (prob_long > prob_flat) & (prob_long >= prob_threshold)
+        long_mask = (prob_long > prob_short) & (prob_long > prob_flat) & (prob_long >= PROB_THRESHOLD)
         entry_signals[long_mask] = 1
-        
+
         # Assign SHORT where prob_short is highest AND above threshold  
-        short_mask = (prob_short > prob_long) & (prob_short > prob_flat) & (prob_short >= prob_threshold)
+        short_mask = (prob_short > prob_long) & (prob_short > prob_flat) & (prob_short >= PROB_THRESHOLD)
         entry_signals[short_mask] = -1
         
         # Confidence is the max probability

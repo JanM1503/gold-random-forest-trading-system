@@ -340,8 +340,8 @@ class TradingModels:
         entry_pred = self.entry_model.predict(X)[0]
         entry_proba = self.entry_model.predict_proba(X)[0]
 
-        # Model liefert direkt unsere Labels (-1=SHORT, 0=FLAT, 1=LONG)
-        entry_signal = int(entry_pred)
+        class_mapping = {0: -1, 1: 0, 2: 1}  # sklearn classes zu unseren Labels
+        entry_signal = class_mapping.get(entry_pred, 0)
         
         # Confidence
         confidence = entry_proba.max()

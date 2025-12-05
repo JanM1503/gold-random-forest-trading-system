@@ -346,7 +346,11 @@ def generate_backtest_plots(
 
                     bucket_stats = (
                         merged.dropna(subset=["vix_bin"])
-                        .groupby("vix_bin")
+                        # "observed=False" explizit setzen (FutureWarning in neueren pandas-Versionen)
+                        .groupby("vix_bin", observed=False)
+                        # "include_groups=False" stellt sicher, dass Gruppierungsspalten
+                        # in Zukunft nicht mehr implizit mit in "g" enthalten sind und
+                        # unterdrückt den entsprechenden FutureWarning.
                         .apply(
                             lambda g: pd.Series(
                                 {
@@ -360,7 +364,8 @@ def generate_backtest_plots(
                                     if (g["net_pnl"] <= 0).any()
                                     else 0.0,
                                 }
-                            )
+                            ),
+                            include_groups=False,
                         )
                         .reset_index()
                     )
