@@ -10,13 +10,13 @@ from datetime import datetime
 # HINWEIS: Für GitHub KEINE echten Keys hier hinterlegen!
 #          Setze die Werte ausschließlich über Environment-Variablen
 # ====================================
-OANDA_API_KEY = os.getenv("OANDA_API_KEY", "7853cf1199152030d7cfed27ff0dfadd-e141ec058dafd6ca2090eb0887b3791d")
-OANDA_ACCOUNT_ID = os.getenv("OANDA_ACCOUNT_ID", "101-004-37570682-001")
+OANDA_API_KEY = os.getenv("OANDA_API_KEY", "")
+OANDA_ACCOUNT_ID = os.getenv("OANDA_ACCOUNT_ID", "")
 OANDA_API_URL = "https://api-fxpractice.oanda.com/v3"
 
-NEWS_API_KEY = os.getenv("NEWS_API_KEY", "fa5e87661b8c42c594572d88f7c468a8")
-FRED_API_KEY = os.getenv("FRED_API_KEY", "f7a90545d65279aaf81ebb5926f526a3")
-RAPIDAPI_KEY = os.getenv("RAPIDAPI_KEY", "f6796745fcmsh35009faad5c9e92p1bc1ecjsnb07fdc569422")
+NEWS_API_KEY = os.getenv("NEWS_API_KEY", "")
+FRED_API_KEY = os.getenv("FRED_API_KEY", "")
+RAPIDAPI_KEY = os.getenv("RAPIDAPI_KEY", "")
 
 # ====================================
 # DATEN-KONFIGURATION
@@ -168,4 +168,5 @@ print(f"[TRAIN] Train: {TRAIN_START_DATE} bis {TRAIN_END_DATE}")
 print(f"[TEST] Test: {TEST_START_DATE} bis {TEST_END_DATE}")
 print(f"[GOLD] Gold-Instrument: {GOLD_INSTRUMENT}")
 print(f"[TRADE] Auto-Trading: {'AKTIV' if AUTO_TRADE else 'INAKTIV'}")
+
 
